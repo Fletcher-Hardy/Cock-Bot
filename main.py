@@ -1,5 +1,6 @@
 import discord
 import os
+from keep_alive import keep_alive
 
 intent=discord.Intents.default()
 intent.members = True
@@ -39,4 +40,5 @@ async def on_message(message):
     return
 
 my_secret = os.environ["botToken"]
+keep_alive()
 client.run(my_secret)
