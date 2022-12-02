@@ -1,6 +1,8 @@
 import discord
 import os
+from replit import db
 from keep_alive import keep_alive
+from update_cock import update_cock
 
 intent=discord.Intents.default()
 intent.members = True
@@ -31,11 +33,17 @@ async def on_message(message):
 
   #individual cocks
   if message.author.id == squidID:
-    await message.channel.send("squid cock!")
+    update_cock("squid")
+    squidCock = db["squid"]
+    await message.channel.send(f"Squid cock! \nSquid has a {squidCock} inch cock!")
   elif message.author.id == landriID:
-    await message.channel.send("landri cock!")
+    update_cock("landri")
+    landriCock = db["landri"]
+    await message.channel.send(f"Landri cock! \nLandri has a {landriCock} inch cock!")
   elif message.author.id == floochooID:
-    await message.channel.send("floochoo cock!")
+    update_cock("floochoo")
+    floochooCock = db["floochoo"]
+    await message.channel.send(f"Floochoo cock! \nFloochoo has a {floochooCock} inch cock!")
   else:
     return
 
